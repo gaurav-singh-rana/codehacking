@@ -4,7 +4,25 @@
 
 @section('content')
 
+<!-- #####For Session Flash #### -->
+@if (Session::has('deleted_user'))
+<div class="alert alert-danger">
+          <p>{{session('deleted_user')}}</p>
+      </div>
+@endif
 
+@if (Session::has('updated_user'))
+<div class="alert alert-success">
+          <p>{{session('updated_user')}}</p>
+      </div>
+@endif
+
+@if (Session::has('created_user'))
+<div class="alert alert-success">
+          <p>{{session('created_user')}}</p>
+      </div>
+@endif
+<!-- #####For Session Flash #### -->
 <h1>Users</h1>
 
 <table class="table">
