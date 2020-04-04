@@ -21,6 +21,11 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); 
+            
+            //onDelete('cascade'); simply adds ON DELETE CASCADE rule to your database which specifies that the child data gets deleted when the parent data is deleted.
+            //If a record in the on() table gets deleted, these associated foreign key records will also get deleted. Also note that foreign() cannot be chained to a column creation statement.
         });
     }
 
